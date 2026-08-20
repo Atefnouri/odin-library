@@ -1,197 +1,375 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <title>My Application</title>
-    <link rel="stylesheet" href="style.css" type="text/tailwindcss">
-    <style type="text/tailwindcss">
-        @theme {
-        --color-clifford: #da373d;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-</head>
+  <body>
 
-<body>
-
-    <!-- Include this script tag or install `@tailwindplus/elements` via npm: -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script> -->
-    <div class="bg-white">
-        <header class="absolute inset-x-0 top-0 z-50">
-            <nav aria-label="Global" class="flex items-center justify-between p-6 lg:px-8">
-                <div class="flex lg:flex-1">
-                    <a href="#" class="-m-1.5 p-1.5">
-                        <span class="sr-only">Your Company</span>
-                        <img src="images/logo.webp" alt=""
-                            class="h-8 w-auto" />
-                    </a>
-                </div>
-   
-            </nav>
-            <el-dialog>
-                <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-                    <div tabindex="0" class="fixed inset-0 focus:outline-none">
-                        <el-dialog-panel
-                            class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-                            <div class="flex items-center justify-between">
-                                <a href="#" class="-m-1.5 p-1.5">
-                                    <span class="sr-only">Your Company</span>
-                                    <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=600"
-                                        alt="" class="h-8 w-auto" />
-                                </a>
-                                <button type="button" command="close" commandfor="mobile-menu"
-                                    class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                                    <span class="sr-only">Close menu</span>
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                                        data-slot="icon" aria-hidden="true" class="size-6">
-                                        <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="mt-6 flow-root">
-                                <div class="-my-6 divide-y divide-gray-500/10">
-                                    <div class="space-y-2 py-6">
-                                        <a href="#"
-                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
-                                        <a href="#"
-                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
-                                        <a href="#"
-                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                        <a href="#"
-                                            class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
-                                    </div>
-                                    <div class="py-6">
-                                        <a href="#"
-                                            class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log
-                                            in</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </el-dialog-panel>
-                    </div>
-                </dialog>
-            </el-dialog>
-        </header>
-
-        <div class="relative isolate px-6 pt-14 lg:px-8">
-            <div aria-hidden="true"
-                class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-                    class="relative left-[calc(50%-11rem)] aspect-1155/678 w-144.5 -translate-x-1/2 rotate-30 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-288.75">
-                </div>
-            </div>
-            <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-
-                <div class="text-center">
-                    <h1 class="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">Welcome to your Library
-                    </h1>
-                    <p class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">Your digital bookshelf</p>
-                    <div class="mt-10 flex items-center justify-center gap-x-6">
-                        <a href="#"
-                            class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get
-                            started →</a>
-                    </div>
-                </div>
-            </div>
-            <div aria-hidden="true"
-                class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-                <div style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"
-                    class="relative left-[calc(50%+3rem)] aspect-1155/678 w-144.5 -translate-x-1/2 bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-288.75">
-                </div>
-            </div>
+    <!--header-->    
+    <section class="py-5">
+        <div class="bg-primary py-2 d-none d-lg-block">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="d-flex">
+						<a class="d-flex align-items-center text-decoration-none text-light" href="tel:+1-541-754-3010"><svg class="bi bi-phone" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+						<path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"></path>
+						<path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"></path></svg> <span class="ms-1">+1-541-754-3010</span></a> <a class="d-flex align-items-center ms-lg-4 text-decoration-none text-light" href="mailto:info@gmail.com"><svg class="bi bi-envelope" fill="currentColor" height="20" viewbox="0 0 16 16" width="20" xmlns="http://www.w3.org/2000/svg">
+						<path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"></path></svg> <span class="ms-2">info@gmail.com</span></a>
+					</div>
+				</div>
+				<div class="col">
+					<div class="d-flex justify-content-end">
+						<a class="text-light" href=""><svg class="bi bi-facebook-f" fill="currentColor" height="16" viewbox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg">
+						<path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a> <a class="text-light ms-3" href=""><svg class="bi bi-twitter" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+						<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"></path></svg></a> <a class="text-light ms-3" href=""><svg class="bi bi-instagram" fill="currentColor" height="16" viewbox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+						<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path></svg></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+      <nav class="navbar navbar-expand-md bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html"
+            ><img
+              alt="Free Frontend Logo"
+              class="img-fluid"
+              height=""
+              src="./images/logo.png"
+              width="300"
+          /></a>
+          <!--<button aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent1" data-bs-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>-->
+          <!--<div class="collapse navbar-collapse" id="navbarSupportedContent1">
+				<ul class="navbar-nav ms-auto my-2 my-md-0">
+					<li class="nav-item ms-lg-4">
+						<a class="nav-link" href="">About</a>
+					</li>
+					<li class="nav-item ms-lg-4">
+						<a class="nav-link" href="">Shop</a>
+					</li>
+					<li class="nav-item ms-lg-4">
+						<a class="nav-link" href="">Blog</a>
+					</li>
+					<li class="nav-item ms-lg-4">
+						<a class="nav-link" href="">Contact</a>
+					</li>
+				</ul>
+			</div>-->
         </div>
-    </div>
+      </nav>
+    </section>
 
-    <header>
-        <h1 class="text-3xl font-bold underline text-clifford">Welcome My Library </h1>
-    </header>
-
-    <main>
-
-        <button command="show-modal" commandfor="my-dialog">Add new Book</button>
-
-        <dialog id="my-dialog">
-            <form>
-
-                <div>
-                    <label>Book Title</label><br>
-                    <input type="text" name="book title" id="bookTitle" required>
-                </div>
-
-                <div>
-                    <label>Author</label><br>
-                    <input type="text" name="book title" id="bookAuthor" required>
-                </div>
-
-                <div>
-                    <label>Page Number</label><br>
-                    <input type="number" name="book title" id="bookPgnumber" required>
-                </div>
-
-                <div>
-                    <label>Year</label><br>
-                    <input type="number" name="book title" id="bookYear" required>
-                </div>
-
-                <div>
-                    <label>is it Read ?</label><br>
-                    <input type="checkbox" name="isRead" id="isItRead" required>
-                </div>
-
-
-                <button id="addbook">Save</button><br>
-
-
-            </form>
-            <button commandfor="my-dialog" command="close">Close</button>
-        </dialog>
-
-
-
-
-    </main>
-
-
-    <section>
-        <h2>List of Books</h2>
-
-        <table id="table" border="1px black sloid">
-
-            <thead>
-                <td>Book Title</td>
-                <td>Author</td>
-                <td>NB Page</td>
-                <td>Year</td>
-                <td>Read</td>
-                <td></td>
-            </thead>
-
-            <tbody id="tablebody">
-
-            </tbody>
-
-        </table>
-
-
+    <!--Hero-->
+    <section
+      class="py-5 d-flex align-items-center position-relative min-vh-100"
+    >
+      <div class="container">
+        <div
+          class="d-none d-lg-flex justify-content-center align-items-center col-md-6 position-absolute top-0 end-0"
+          style="
+            background-image: url(https://freefrontend.dev/assets/square.png);
+            background-position: center;
+            background-size: cover;
+            height: 100%;
+          "
+        >
+          <a
+            class="bg-white d-flex align-items-center justify-content-center rounded-circle"
+            href=""
+            style="width: 100px; height: 100px"
+            ><svg
+              class="bi bi-play-fill"
+              fill="currentColor"
+              height="32"
+              viewbox="0 0 16 16"
+              width="32"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
+              ></path></svg
+          ></a>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <h1 class="display-3 fw-bold mb-4">
+              Our mission is to provide the
+              <span class="text-primary">Best</span> Online Libarary
+            </h1>
+            <a class="btn btn-lg btn-primary" href="./app.html">Get Started →</a>
+          </div>
+          <div class="col-lg-6">
+            <div class="d-lg-none d-block position-relative mt-4">
+              <img
+                alt=""
+                class="img-fluid"
+                src="https://freefrontend.dev/assets/square.png"
+              />
+              <div class="position-absolute translate-middle top-50 start-50">
+                <a
+                  class="mx-auto bg-white d-flex align-items-center justify-content-center rounded-circle"
+                  href=""
+                  style="width: 60px; height: 60px"
+                  ><svg
+                    class="bi bi-play-fill"
+                    fill="currentColor"
+                    height="24"
+                    viewbox="0 0 16 16"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
+                    ></path></svg
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
 
+    <section class="py-5">
+	<div class="container">
+		<div class="row justify-content-center text-center mb-3 mb-md-5">
+			<div class="col-lg-8 col-xxl-7">
+				<span class="text-muted">Showcase</span>
+				<h2 class="display-5 fw-bold mb-3">Our Gallery</h2>
+				<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta harum ipsum venenatis metus sem veniam eveniet aperiam suscipit.</p>
+			</div>
+		</div>
+		<div class="carousel slide pointer-event" data-bs-ride="carousel" id="portfolioCarousel">
+			<div class="carousel-inner">
+				<div class="carousel-item p-4">
+					<div class="row g-5">
+						<div class="col-md-4">
+							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
+								<img alt="" class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
+								<div class="card-body text-center mt-3">
+									<h6>Catchy Title One</h6>
+									<div class="text-muted">
+										Project Details
+									</div>
+									<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
+								<img alt="" class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
+								<div class="card-body text-center mt-3">
+									<h6>Catchy Title Two</h6>
+									<div class="text-muted">
+										Project Details
+									</div>
+									<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
+								<img alt="" class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
+								<div class="card-body text-center mt-3">
+									<h6>Catchy Title Three</h6>
+									<div class="text-muted">
+										Project Details
+									</div>
+									<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="carousel-item p-4 active">
+					<div class="row g-5">
+						<div class="col-md-4">
+							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
+								<img alt="" class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
+								<div class="card-body text-center mt-3">
+									<h6>Catchy Title Four</h6>
+									<div class="text-muted">
+										Project Details
+									</div>
+									<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
+								<img alt="" class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
+								<div class="card-body text-center mt-3">
+									<h6>Catchy Title Five</h6>
+									<div class="text-muted">
+										Project Details
+									</div>
+									<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut.</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
+								<img alt="" class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
+								<div class="card-body text-center mt-3">
+									<h6>Catchy Title Six</h6>
+									<div class="text-muted">
+										Project Details
+									</div>
+									<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#portfolioCarousel" type="button"><span aria-hidden="true" class="carousel-control-prev-icon"></span> <span class="visually-hidden">Previous</span></button> <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#portfolioCarousel" type="button"><span aria-hidden="true" class="carousel-control-next-icon"></span> <span class="visually-hidden">Next</span></button>
+		</div>
+	</div>
+</section>
 
-    <footer>
-        <p>
-            © 2026
-            <a href="https://github.com/Atefnouri" target="_blank" rel="noopener noreferrer">
-                Atef Nouri
-            </a>
-            — All rights reserved.
-        </p>
+    <!--feature-->
+    <section class="py-5">
+	<div class="container">
+		<div class="row justify-content-center text-center mb-3">
+			<div class="col-lg-8 col-xl-7">
+				<span class="text-muted">Features</span>
+				<h2 class="display-5 fw-bold">Our Features</h2>
+				<p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit Consequatur quidem eius cum voluptatum quasi delectus.</p>
+			</div>
+		</div>
+		<div class="row gx-5 align-items-center">
+			<div class="col-md-4 mb-5 mb-md-0"><img alt="" class="img-fluid rounded" src="https://freefrontend.dev/assets/rectangle-tall2.png"></div>
+			<div class="col-md-8">
+				<div class="row gy-4">
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div class="text-muted">
+								<svg class="bi bi-aspect-ratio" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0 3.5A1.5 1.5 0 0 1 1.5 2h13A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 12.5v-9zM1.5 3a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-13z"></path>
+								<path d="M2 4.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H3v2.5a.5.5 0 0 1-1 0v-3zm12 7a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H13V8.5a.5.5 0 0 1 1 0v3z"></path></svg>
+							</div>
+							<div class="ms-4">
+								<h5 class="fw-bold">Responsive Design</h5>
+								<p>Lorem ipsum</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div class="text-muted">
+								<svg class="bi bi-emoji-wink" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+								<path d="M4.285 9.567a.5.5 0 0 1 .683.183A3.498 3.498 0 0 0 8 11.5a3.498 3.498 0 0 0 3.032-1.75.5.5 0 1 1 .866.5A4.498 4.498 0 0 1 8 12.5a4.498 4.498 0 0 1-3.898-2.25.5.5 0 0 1 .183-.683zM7 6.5C7 7.328 6.552 8 6 8s-1-.672-1-1.5S5.448 5 6 5s1 .672 1 1.5zm1.757-.437a.5.5 0 0 1 .68.194.934.934 0 0 0 .813.493c.339 0 .645-.19.813-.493a.5.5 0 1 1 .874.486A1.934 1.934 0 0 1 10.25 7.75c-.73 0-1.356-.412-1.687-1.007a.5.5 0 0 1 .194-.68z"></path></svg>
+							</div>
+							<div class="ms-4">
+								<h5 class="fw-bold">Easy-To-Use</h5>
+								<p class="fw-light">Lorem ipsum</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div class="text-muted">
+								<svg class="bi bi-layout-text-window-reverse" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+								<path d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"></path>
+								<path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z"></path></svg>
+							</div>
+							<div class="ms-4">
+								<h5 class="fw-bold">100+ Components</h5>
+								<p class="fw-light">Lorem ipsum</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div class="text-muted">
+								<svg class="bi bi-clipboard-check" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" fill-rule="evenodd"></path>
+								<path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"></path>
+								<path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"></path></svg>
+							</div>
+							<div class="ms-4">
+								<h5 class="fw-bold">Copy & Paste</h5>
+								<p class="fw-light">Lorem ipsum</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div class="text-muted">
+								<svg class="bi bi-speedometer2" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+								<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+								<path d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" fill-rule="evenodd"></path></svg>
+							</div>
+							<div class="ms-4">
+								<h5 class="fw-bold">Unlimited Usage</h5>
+								<p class="fw-light">Lorem ipsum</p>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="d-flex">
+							<div class="text-muted">
+								<svg class="bi bi-pencil-square" fill="currentColor" height="48" viewbox="0 0 16 16" width="48" xmlns="http://www.w3.org/2000/svg">
+								<path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
+								<path d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" fill-rule="evenodd"></path></svg>
+							</div>
+							<div class="ms-4">
+								<h5 class="fw-bold">100% Customizable</h5>
+								<p class="fw-light">Lorem ipsum</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+    <footer class="py-4">
+      <div class="container">
+        <div class="d-lg-flex justify-content-between py-3 py-lg-2">
+          <div class="small mb-2 mb-lg-0">
+            <p class="text-muted mb-0 me-5" id="footerContent">
+              <!--© 2023 FreeFrontend.dev. All rights reserved.-->
+            </p>
+          </div>
+          <div class="d-flex small align-items-end justify-content-between">
+        
+            <div class="d-none d-lg-block ms-3">
+              <a class="me-2" href="https://github.com/Atefnouri"
+                ><svg
+                  class="bi bi-github text-primary"
+                  fill="currentColor"
+                  height="32"
+                  viewbox="0 0 16 16"
+                  width="32"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                    </svg
+              ></a>
+            </div>
+          
+          </div>
+        </div>
+      </div>
     </footer>
-
-    <script src="src.js"></script>
-</body>
-
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+  <script src="src.js"></script>
 </html>
