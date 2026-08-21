@@ -20,14 +20,19 @@ Check it out here: [Demo](https://atefnouri.github.io/odin-library/)
 * HTML5
 * CSS3
 * Vanilla JavaScript (ES6)
+* Bootstrap 5.3.8
+* Bootstrap JavaScript bundle
+* jsDelivr CDN
+* Web App Manifest
+* GitHub Pages
 
 ## 💻 Running Locally
 
 To run this project locally, simply clone the repository and open the `index.html` file in your preferred web browser. No local server or build process is required!
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/Atefnouri/odin-library.git
+cd odin-library
 # Double-click index.html to open it in your browser
 ```
 
