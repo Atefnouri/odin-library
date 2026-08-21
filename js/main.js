@@ -1,6 +1,6 @@
 //init
 const tableBody = document.getElementById("bookGrid");
-const myButton = document.getElementById("addbook");
+const saveBookButton = document.getElementById("addbook");
 let bookTitleInput = document.getElementById("bookTitle");
 let bookAuthorInput = document.getElementById("bookAuthor");
 let bookPnumberInput = document.getElementById("bookPgnumber");
@@ -18,6 +18,7 @@ let tempThumbnailURL = '';
 
 
 //reteive image from local file 
+if(bookThumbnailInput){
 bookThumbnailInput.addEventListener('change', function (event) {
   const file = event.target.files[0];
 
@@ -32,6 +33,7 @@ bookThumbnailInput.addEventListener('change', function (event) {
     };*/
   }
 });
+}
 
 
 
@@ -82,7 +84,8 @@ displayLibrary();
 }
 
 //enable addbutton functionaly
-myButton.addEventListener('click',(event) =>{
+if(saveBookButton){
+saveBookButton.addEventListener('click',(event) =>{
 event.preventDefault();
 addBookToLibrary(bookTitle.value,bookAuthor.value,bookPgnumber.value,bookYear.value,isItRead.checked,tempThumbnailURL);
 //reset forms 
@@ -98,7 +101,7 @@ bookThumbnail.value = '';
     };*/
 tempThumbnailURL = '';
 toastBootstrap.show()
-});
+});}
 
 
 
@@ -110,11 +113,15 @@ let booktoUpdate = myLibrary.find((x) => x.id === id );
   if(booktoUpdate){
         booktoUpdate.toggleStatus();
     }
-console.log(myLibrary);
 displayLibrary();
 }
 
+
 deleteBook = (id) => {
+    //confirm("Are you sure you want to delete this book?");
+    if(!confirm("Are you sure you want to delete this book?")){
+        return;
+    }
 
    console.log(`the ${id} to delete`);
     //find index or by id
@@ -129,9 +136,6 @@ deleteBook = (id) => {
         myLibrary.length = 0;
         tableBody.innerHTML = ""; 
     }
-    console.log(myLibrary.length);
-    //call the dsiplay function to refresh the view 
-    console.log(myLibrary);
     displayLibrary();
 }
 
@@ -170,35 +174,9 @@ function displayLibrary(){
 								</div>
 							</div>
 						</div>`;
-
-    // if(myLibrary[i].isRead){
-    
-    //     innerContent+=`<tr>
-    // <td>${myLibrary[i].title}</td>
-    // <td>${myLibrary[i].author}</td>
-    // <td>${myLibrary[i].page}</td>
-    // <td>${myLibrary[i].year}</td>
-    // <td><input type="checkbox" onclick="updateStatus('${myLibrary[i].id}')"  checked> </td>
-    // <td><button onclick="deleteBook('${myLibrary[i].id}')">Delete</button></td>
-    // </tr>`
-
-
-    // }
-    // else {
-    // innerContent+=`<tr>
-    // <td>${myLibrary[i].title}</td>
-    // <td>${myLibrary[i].author}</td>
-    // <td>${myLibrary[i].page}</td>
-    // <td>${myLibrary[i].year}</td>
-    // <td><input onclick="updateStatus('${myLibrary[i].id}')" type="checkbox"></td>
-    // <td><button onclick="deleteBook('${myLibrary[i].id}')">Delete</button></td>
-    // </tr>`
-
-    // }
-    
-
-
-    tableBody.innerHTML = innerContent;
+         if(tableBody){
+            tableBody.innerHTML = innerContent;
+         }
 }
 
 }
@@ -206,9 +184,6 @@ function displayLibrary(){
 
 
 //populate the libaray 
-// Sample real-world book data matching your function signature:
-// addBookToLibrary(title, author, pages, year, isRead);
-
 addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, 1960, true,'');
 addBookToLibrary("1984", "George Orwell", 328, 1949, true,'');
 addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, 1925, false,'https://i.insider.com/518296d969beddd06d000001?width=640&format=jpeg');
