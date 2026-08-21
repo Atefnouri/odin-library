@@ -6,7 +6,7 @@ This project is a small, interactive web application to track your personal read
 ## 🚀 Live Demo
 
 **This project is deployed and hosted live using GitHub Pages!**  
-Check it out here: [Insert your GitHub Pages link here] 
+Check it out here: [Demo](https://atefnouri.github.io/odin-library/)
 
 ## ✨ Features
 
