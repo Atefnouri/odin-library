@@ -137,7 +137,7 @@ function displayLibrary(){
 										By <b>${myLibrary[i].author} </b>
 									</div>
                                     ${isReadBadge}
-                                   
+                                   <button onclick="deleteBook('${myLibrary[i].id}')">Delete</button>
 								</div>
 							</div>
 						</div>`;
