@@ -1,27 +1,29 @@
 //init
 const tableBody = document.getElementById("bookGrid");
 const myButton = document.getElementById("addbook");
-let bookTitle = document.getElementById("bookTitle");
-let bookAuthor = document.getElementById("bookAuthor");
-let bookPgnumber = document.getElementById("bookPgnumber");
-let bookYear = document.getElementById("bookYear");
-let isItRead = document.getElementById("isItRead");
-let bookThumbnail = document.getElementById("bookThumbnail");
+let bookTitleInput = document.getElementById("bookTitle");
+let bookAuthorInput = document.getElementById("bookAuthor");
+let bookPnumberInput = document.getElementById("bookPgnumber");
+let bookYearInput = document.getElementById("bookYear");
+let isItReadInput = document.getElementById("isItRead");
+
 let myLibrary = [];
 const toastLiveExample = document.getElementById('liveToast')
 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+
+let bookThumbnailInput = document.getElementById("bookThumbnail");
 let tempThumbnailURL = '';
+//const thumbnailPreview = document.getElementById('thumbnailPreview');
 
 
 
 //reteive image from local file 
-bookThumbnail.addEventListener('change', function (event) {
+bookThumbnailInput.addEventListener('change', function (event) {
   const file = event.target.files[0];
 
   if (file && file.type.startsWith('image/')) {
     // Generate a temporary local URL for the selected file
     tempThumbnailURL = URL.createObjectURL(file);
-    alert(thumbnailPreview.src);
     //previewContainer.style.display = 'block';
 
     // Free up memory once the image element finishes loading
@@ -83,7 +85,6 @@ displayLibrary();
 myButton.addEventListener('click',(event) =>{
 event.preventDefault();
 addBookToLibrary(bookTitle.value,bookAuthor.value,bookPgnumber.value,bookYear.value,isItRead.checked,tempThumbnailURL);
-alert(tempThumbnailURL);
 //reset forms 
 bookTitle.value = '';
 bookAuthor.value = '';
@@ -91,8 +92,11 @@ bookPgnumber.value = '';
 bookYear.value = '';
 isItRead.checked = false;
 bookThumbnail.value = '';
- //URL.revokeObjectURL(tempThumbnailURL);
-//tempThumbnailURL = '';
+  // Free up memory once the image element finishes loading
+    /*thumbnailPreview.onload = function () {
+      URL.revokeObjectURL(tempThumbnailURL);
+    };*/
+tempThumbnailURL = '';
 toastBootstrap.show()
 });
 
@@ -150,7 +154,7 @@ function displayLibrary(){
 							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
                             
 								
-                            <img alt="${myLibrary[i].title}" class="img-thumbnail"
+                            <img alt="${myLibrary[i].title}" id="thumbnailPreview" class="img-thumbnail"
                             style="width: 450px; height: 150px; object-fit: cover;"    
                             src="${myLibrary[i].thumbnail}">
                                 <div class="card-body text-center mt-3">
