@@ -6,10 +6,30 @@ let bookAuthor = document.getElementById("bookAuthor");
 let bookPgnumber = document.getElementById("bookPgnumber");
 let bookYear = document.getElementById("bookYear");
 let isItRead = document.getElementById("isItRead");
+let bookThumbnail = document.getElementById("bookThumbnail");
 let myLibrary = [];
 const toastLiveExample = document.getElementById('liveToast')
 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+let tempThumbnailURL = '';
 
+
+
+//reteive image from local file 
+bookThumbnail.addEventListener('change', function (event) {
+  const file = event.target.files[0];
+
+  if (file && file.type.startsWith('image/')) {
+    // Generate a temporary local URL for the selected file
+    tempThumbnailURL = URL.createObjectURL(file);
+    alert(thumbnailPreview.src);
+    //previewContainer.style.display = 'block';
+
+    // Free up memory once the image element finishes loading
+    /*thumbnailPreview.onload = function () {
+      URL.revokeObjectURL(thumbnailPreview.src);
+    };*/
+  }
+});
 
 
 
@@ -62,13 +82,17 @@ displayLibrary();
 //enable addbutton functionaly
 myButton.addEventListener('click',(event) =>{
 event.preventDefault();
-addBookToLibrary(bookTitle.value,bookAuthor.value,bookPgnumber.value,bookYear.value,isItRead.checked);
+addBookToLibrary(bookTitle.value,bookAuthor.value,bookPgnumber.value,bookYear.value,isItRead.checked,tempThumbnailURL);
+alert(tempThumbnailURL);
 //reset forms 
 bookTitle.value = '';
 bookAuthor.value = '';
 bookPgnumber.value = '';
 bookYear.value = '';
 isItRead.checked = false;
+bookThumbnail.value = '';
+ //URL.revokeObjectURL(tempThumbnailURL);
+//tempThumbnailURL = '';
 toastBootstrap.show()
 });
 
@@ -129,7 +153,6 @@ function displayLibrary(){
                             <img alt="${myLibrary[i].title}" class="img-thumbnail"
                             style="width: 450px; height: 150px; object-fit: cover;"    
                             src="${myLibrary[i].thumbnail}">
-								<button type="button" class="btn btn-outline-dark">Edit</button>
                                 <div class="card-body text-center mt-3">
                                 
 									<h5>${myLibrary[i].title}</h5>
@@ -137,7 +160,9 @@ function displayLibrary(){
 										By <b>${myLibrary[i].author} </b>
 									</div>
                                     ${isReadBadge}
-                                   <button onclick="deleteBook('${myLibrary[i].id}')">Delete</button>
+                                 
+                                   <button class="btn btn-info" onclick="updateStatus('${myLibrary[i].id}')">Mark as Read </button>
+                                   <button class="btn btn-danger" onclick="deleteBook('${myLibrary[i].id}')">Delete</button>
 								</div>
 							</div>
 						</div>`;
