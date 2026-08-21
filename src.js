@@ -7,6 +7,10 @@ let bookPgnumber = document.getElementById("bookPgnumber");
 let bookYear = document.getElementById("bookYear");
 let isItRead = document.getElementById("isItRead");
 let myLibrary = [];
+const toastLiveExample = document.getElementById('liveToast')
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+
+
 
 
 //render the footer text 
@@ -15,7 +19,7 @@ footer.innerHTML =`© ${ new Date().getFullYear()} Atef Nouri. All rights reserv
 
 
 //constructor
-function Book(title,author,page,year,isRead) {
+function Book(title,author,page,year,isRead,thumbnail) {
 
     if (!new.target) {
         throw Error("use always the new keyword");
@@ -27,6 +31,13 @@ function Book(title,author,page,year,isRead) {
   this.page = page;
   this.year = year;
   this.isRead = isRead;
+  //this.thumbnail === ''? this.thumbnail = "https://freefrontend.dev/assets/rectangle-wide.png" : this.thumbnail = thumbnail; 
+  if(thumbnail === ''){
+    this.thumbnail = "https://freefrontend.dev/assets/rectangle-wide.png";
+  } else {
+    this.thumbnail = thumbnail;
+  } 
+  
 }
 
 Book.prototype.toggleStatus = function(){
@@ -40,9 +51,9 @@ console.log(`${this.id}, ${this.title},${this.author},${this.page},${this.year},
 
 
 
-function addBookToLibrary(title,author,page,year,isRead) {
-let newBook = new Book(title,author,page,year,isRead);
- myLibrary.push(newBook);
+function addBookToLibrary(title,author,page,year,isRead,thumbnail) {
+let newBook = new Book(title,author,page,year,isRead,thumbnail);
+ myLibrary.unshift(newBook);
  console.log(myLibrary);
 displayLibrary();
 //alert("Book was added succsuflly") 
@@ -52,6 +63,13 @@ displayLibrary();
 myButton.addEventListener('click',(event) =>{
 event.preventDefault();
 addBookToLibrary(bookTitle.value,bookAuthor.value,bookPgnumber.value,bookYear.value,isItRead.checked);
+//reset forms 
+bookTitle.value = '';
+bookAuthor.value = '';
+bookPgnumber.value = '';
+bookYear.value = '';
+isItRead.checked = false;
+toastBootstrap.show()
 });
 
 
@@ -93,19 +111,33 @@ deleteBook = (id) => {
 function displayLibrary(){
 
     let innerContent = "";
+    let isReadBadge = "";
 
    for(let i=0;i<myLibrary.length;i++){
 
+   //check if read 
+   if(myLibrary[i].isRead){
+    isReadBadge = `<span class="badge bg-success">Read</span>`;
+   } else {
+    isReadBadge = `<span class="badge text-bg-light">Not Read</span>`;
+   }
 
   innerContent+=` <div class="col-md-4">
 							<div class="card border-0 rounded-0 shadow mb-4 mb-md-0">
-								<img alt="" class="img-fluid" src="https://freefrontend.dev/assets/rectangle-wide.png">
-								<div class="card-body text-center mt-3">
+                            
+								
+                            <img alt="${myLibrary[i].title}" class="img-thumbnail"
+                            style="width: 450px; height: 150px; object-fit: cover;"    
+                            src="${myLibrary[i].thumbnail}">
+								<button type="button" class="btn btn-outline-dark">Edit</button>
+                                <div class="card-body text-center mt-3">
+                                
 									<h5>${myLibrary[i].title}</h5>
 									<div class="text-muted">
 										By <b>${myLibrary[i].author} </b>
 									</div>
-									<!--<p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit ut.</p>-->
+                                    ${isReadBadge}
+                                   
 								</div>
 							</div>
 						</div>`;
@@ -148,10 +180,10 @@ function displayLibrary(){
 // Sample real-world book data matching your function signature:
 // addBookToLibrary(title, author, pages, year, isRead);
 
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, 1960, true);
-addBookToLibrary("1984", "George Orwell", 328, 1949, true);
-addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, 1925, false);
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, 1937, true);
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, 1960, true,'');
+addBookToLibrary("1984", "George Orwell", 328, 1949, true,'');
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, 1925, false,'https://i.insider.com/518296d969beddd06d000001?width=640&format=jpeg');
+addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, 1937, true,'https://atolkienistperspective.wordpress.com/wp-content/uploads/2016/10/the-hobbit-book-cover-banner.jpg');
 
 
 

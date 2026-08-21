@@ -43,7 +43,7 @@
         <div class="container">
             <div class="col-md-2 d-grid  mt-5 mb-5 justify-content-start ">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Add new book +
+                    New Book
                 </button>
 
             </div>
@@ -96,7 +96,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Add new book</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Book</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -110,24 +110,24 @@
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Author</label>
-                        <input type="text" class="form-control" id="bookAuthor">
+                        <input type="text" class="form-control" id="bookAuthor" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Page Number</label>
-                        <input type="number" class="form-control" id="bookPgnumber">
+                        <input type="number" class="form-control" id="bookPgnumber" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Year</label>
-                        <input type="number" class="form-control" id="bookYear">
+                        <input type="number" class="form-control" id="bookYear" required>
                     </div>
 
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="isItRead">
                         <label class="form-check-label">Mark as read</label>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="addbook">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="addbook">Save</button>
                 </form>
             </div>
             <!--<div class="modal-footer">
@@ -136,6 +136,21 @@
       </div>-->
         </div>
     </div>
+</div>
+
+<!--Toast-->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <!--<img src="..." class="rounded me-2" alt="...">-->
+      <strong class="me-auto">INFO</strong>
+      <!--<small>now</small>-->
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+     Book was added succsuflly
+    </div>
+  </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
